@@ -1,43 +1,29 @@
+# 📝 Blog Website Project
 
-
-# 📌 Project Contributors
-
-This file contains the list of team members and their contributions to this Web Development project.
-
----
-
-### 👤 *Palak Srivastava*
-*Role:* Frontend Developer & UI Designer  
-*Contribution:*  
-- Designed website layout and structure  
-- Created responsive UI using HTML & CSS  
-- Worked on overall look and feel of the web pages  
+A responsive and dynamic *Blog Website* created using modern web technologies like *HTML, CSS, JavaScript & React*.  
+This project allows users to explore blogs, read posts, and enjoy a clean and attractive UI designed for smooth user experience.
 
 ---
 
-### 👤 *Muskan Dwivedi*
-*Role:* JavaScript Developer & UI Support  
-*Contribution:*  
-- Implemented JavaScript functionality  
-- Worked on interactive elements and validations  
-- Assisted in UI design and improvements  
+## 🚀 Features
+
+- ✅ Clean & modern UI  
+- ✅ Responsive layout (mobile-friendly)  
+- ✅ Individual blog pages  
+- ✅ Dynamic content handling  
+- ✅ Smooth navigation  
+- ✅ User-friendly design  
+- ✅ Organized code structure  
 
 ---
 
-### 👤 *Anwesha Gupta*
-*Role:* React & Content Integration  
-*Contribution:*  
-- Wrote and integrated project content into React components  
-- Managed component structure and text placement  
-- Supported UI & project content management  
+## 🛠 Tech Stack Used
 
----
-
-### 👤 *Pratyush Kumar*
-*Role:* Backend & Project Support  
-*Contribution:*  
-- Assisted in connecting frontend with backend workflow  
-- Helped in testing & debugging project modules  
-- Supported team in completing remaining tasks and documentation  
+| Technology | Purpose |
+|-----------|---------|
+| *HTML5* | Structure & layout |
+| *CSS3*  | Styling & UI design |
+| *JavaScript* | Functionality & interaction |
+| *React JS* | Component-based content rendering & UI logic |
 
 ---
