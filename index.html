@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechBlog Pro - Professional Blog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">TechBlogs</div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#blogs">Blogs</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="admin.html">Admin</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">++
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="hero" id="home">
+            <h1>Welcome to TechBlogs</h1>
+            <p>Discover the latest insights in technology, development, and innovation. Stay updated with our expert
+                articles and tutorials.</p>
+        </section>
+
+        <div class="search-container">
+            <input type="text" class="search-input" id="searchInput" placeholder="Search articles...">
+            <button class="search-btn" id="searchBtn">🔍</button>
+        </div>
+
+        <section id="blogs">
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                <p>Loading articles...</p>
+            </div>
+            <div class="blog-grid" id="blogGrid">
+                <!-- Blog cards will be inserted here by JavaScript -->
+            </div>
+            <div class="pagination" id="pagination">
+                <!-- Pagination buttons will be inserted here -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 TechBlogs. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="blogData.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

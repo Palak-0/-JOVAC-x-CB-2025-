@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Detail - TechBlog Pro</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .blog-detail-container {
+            max-width: 800px;
+            margin: 100px auto 0;
+            padding: 2rem;
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            color: #667eea;
+            text-decoration: none;
+            margin-bottom: 2rem;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .back-button:hover {
+            color: #764ba2;
+        }
+
+        .blog-detail-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .blog-detail-image {
+            height: 300px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .blog-detail-image::before {
+            content: '📝';
+            font-size: 4rem;
+            opacity: 0.3;
+            color: white;
+        }
+
+        .category-badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: rgba(255,255,255,0.9);
+            color: #333;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .blog-detail-content {
+            padding: 2rem;
+        }
+
+        .blog-detail-meta {
+            display: flex;
+            gap: 2rem;
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .blog-detail-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .blog-detail-excerpt {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            font-style: italic;
+            font-size: 1.1rem;
+            color: #666;
+        }
+
+        .blog-detail-text {
+            line-height: 1.8;
+            font-size: 1.1rem;
+            color: #444;
+        }
+
+        .blog-detail-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .tags-section {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #eee;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #f8f9fa;
+            color: #667eea;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            margin: 0 0.5rem 0.5rem 0;
+        }
+
+        .related-articles {
+            margin-top: 3rem;
+            padding: 2rem;
+            background: #f8f9fa;
+            border-radius: 15px;
+        }
+
+        .related-article-card {
+            background: white;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .related-article-card:hover {
+            transform: translateY(-2px);
+        }
+
+        .social-share {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #eee;
+        }
+
+        .share-button {
+            display: inline-block;
+            padding: 0.6rem 1.2rem;
+            margin: 0 0.5rem 0.5rem 0;
+            border-radius: 8px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            transition: opacity 0.3s;
+        }
+
+        .share-button:hover {
+            opacity: 0.8;
+        }
+
+        .share-twitter { background: #1DA1F2; }
+        .share-linkedin { background: #0077B5; }
+        .share-facebook { background: #1877F2; }
+
+        @media (max-width: 768px) {
+            .blog-detail-container {
+                margin-top: 80px;
+                padding: 1rem;
+            }
+
+            .blog-detail-title {
+                font-size: 2rem;
+            }
+
+            .blog-detail-meta {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .blog-detail-image {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">TechBlog Pro</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#blogs">Blogs</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="admin.html">Admin</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="blog-detail-container">
+        <a href="index.html" class="back-button">
+            ← Back to Articles
+        </a>
+
+        <article class="blog-detail-card" id="blogDetail">
+            <!-- Blog content will be inserted here by JavaScript -->
+        </article>
+
+        <div class="related-articles">
+            <h3>Related Articles</h3>
+            <div id="relatedArticles">
+                <!-- Related articles will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 TechBlog Pro. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="blogData.js"></script>
+    <script>
+        // Get blog ID from URL parameters
+        function getBlogIdFromURL() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return parseInt(urlParams.get('id'));
+        }
+
+        // Find blog by ID
+        function findBlogById(id) {
+            return blogData.find(blog => blog.id === id);
+        }
+
+        // Render blog detail
+        function renderBlogDetail() {
+            const blogId = getBlogIdFromURL();
+            const blog = findBlogById(blogId);
+
+            if (!blog) {
+                document.getElementById('blogDetail').innerHTML = `
+                    <div style="text-align: center; padding: 3rem;">
+                        <h2>Blog not found</h2>
+                        <p>The requested blog post could not be found.</p>
+                        <a href="index.html" class="back-button">← Back to Home</a>
+                    </div>
+                `;
+                return;
+            }
+
+            // Update page title
+            document.title = `${blog.title} - TechBlog Pro`;
+
+            const formattedDate = new Date(blog.date).toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+
+            document.getElementById('blogDetail').innerHTML = `
+                <div class="blog-detail-image">
+                    <div class="category-badge">${blog.category}</div>
+                </div>
+                
+                <div class="blog-detail-content">
+                    <h1 class="blog-detail-title">${blog.title}</h1>
+                    
+                    <div class="blog-detail-meta">
+                        <span>👤 ${blog.author}</span>
+                        <span>📅 ${formattedDate}</span>
+                        <span>🕒 ${blog.readTime}</span>
+                        <span>🆔 ID: ${blog.id}</span>
+                    </div>
+
+                    <div class="blog-detail-excerpt">
+                        ${blog.excerpt}
+                    </div>
+
+                    <div class="blog-detail-text">
+                        ${blog.content.split('\n').map(paragraph => `<p>${paragraph}</p>`).join('')}
+                    </div>
+
+                    <div class="tags-section">
+                        <strong>Tags:</strong><br>
+                        ${blog.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                    </div>
+
+                    <div class="social-share">
+                        <strong>Share this article:</strong><br>
+                        <a href="https://twitter.com/intent/tweet?text=${encodeURIComponent(blog.title)}&url=${encodeURIComponent(window.location.href)}" 
+                           target="_blank" class="share-button share-twitter">Twitter</a>
+                        <a href="https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}" 
+                           target="_blank" class="share-button share-linkedin">LinkedIn</a>
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}" 
+                           target="_blank" class="share-button share-facebook">Facebook</a>
+                    </div>
+                </div>
+            `;
+
+            renderRelatedArticles(blog);
+        }
+
+        // Render related articles
+        function renderRelatedArticles(currentBlog) {
+            const relatedBlogs = blogData
+                .filter(blog => 
+                    blog.id !== currentBlog.id && 
+                    (blog.category === currentBlog.category || 
+                     blog.tags.some(tag => currentBlog.tags.includes(tag)))
+                )
+                .slice(0, 3);
+
+            if (relatedBlogs.length === 0) {
+                document.getElementById('relatedArticles').innerHTML = '<p>No related articles found.</p>';
+                return;
+            }
+
+            document.getElementById('relatedArticles').innerHTML = relatedBlogs.map(blog => `
+                <div class="related-article-card" onclick="window.location.href='blog-detail.html?id=${blog.id}'">
+                    <h4 style="margin: 0 0 0.5rem 0; color: #333;">${blog.title}</h4>
+                    <p style="margin: 0 0 0.5rem 0; color: #666; font-size: 0.9rem;">${blog.excerpt.substring(0, 100)}...</p>
+                    <small style="color: #888;">${blog.category} • ${blog.readTime}</small>
+                </div>
+            `).join('');
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            renderBlogDetail();
+        });
+    </script>
+</body>
+</html>
